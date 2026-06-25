@@ -38,19 +38,9 @@ const patients = [
 ];
 
 
-// it showes the senior patients
-const seniorPatients = patients.filter(
-  patient => patient.age > 35
-);
-
-console.log("Senior Patients:");
-console.log(seniorPatients);
-
-
-
+// it shows total patients list
 console.log("Patient Registry");
 console.log("----------------");
-
 patients.forEach((patient) => {
   console.log(
     `ID: ${patient.id}, Name: ${patient.name}, Age: ${patient.age}, Disease: ${patient.disease}`
@@ -58,24 +48,33 @@ patients.forEach((patient) => {
 });
 console.log("\nTotal Patients:", patients.length);
 
+
+// it shows the senior patients
+const seniorPatients = patients.filter(
+  patient => patient.age > 35
+);
+console.log("Senior Patients:");
+console.log(seniorPatients);
+
+
+// it shows total avg of patients
 const averageAge =
   patients.reduce((sum, p) => sum + p.age, 0) / patients.length;
 console.log("Average Age:", averageAge);
 
+// it shows diabetes patients
 const diabetesPatients = patients.filter(
   p => p.disease === "Diabetes"
 );
-
 console.log("\nDiabetes Patients:");
 console.log(diabetesPatients);
 
+// it filter and shows emergency patients
 const emergencyPatients = patients.filter(
   patient => patient.emergency === true
 );
-
 console.log("Emergency Patients:");
 console.log("-------------------");
-
 emergencyPatients.forEach(patient => {
   console.log(
     `ID: ${patient.id}, Name: ${patient.name}, Disease: ${patient.disease}`
